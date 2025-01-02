@@ -1,0 +1,42 @@
+Basis config voor router:
+hostname Router
+
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet0/1
+ ip address 192.168.2.1 255.255.255.0
+ no shutdown
+
+ip route 0.0.0.0 0.0.0.0 192.168.1.254
+
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+
+enable secret cisco
+
+service password-encryption
+
+end
+
+
+Basis config switch:
+hostname Switch
+
+interface Vlan1
+ ip address 192.168.1.2 255.255.255.0
+ no shutdown
+
+line vty 0 4
+ password cisco
+ login
+ transport input ssh
+
+enable secret cisco
+
+service password-encryption
+
+end
